@@ -67,15 +67,18 @@ public class Mascota {
                 '}';
     }
 
-    public int cumplirAnos(int m){
+    public int cumplirAnos(int modificarEdad){
+        this.edad+=modificarEdad;
         return edad;
     }
 
-    public double engordar(){
+    public double engordar(double engordasMas){
+        this.peso+=engordasMas;
         return peso;
     }
 
-    public double adelgazar(){
+    public double adelgazar(double adelgazarMas){
+        this.peso-=adelgazarMas;
         return peso;
     }
 
