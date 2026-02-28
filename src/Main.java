@@ -31,7 +31,7 @@ public class Main {
                     edad = teclado.nextInt();
                     System.out.println("Peso: ");
                     peso = teclado.nextDouble();
-                    System.out.println("Estado (saludable o no) escriba true para si false para no: ");
+                    System.out.println("Estado de salud, 'true' para bueno y 'false' para malo: ");
                     saludable = teclado.nextBoolean();
 
                     Mascota mascota1=new Mascota(nombreM, especie, edad, peso, saludable);
@@ -54,7 +54,7 @@ public class Main {
                         if (buscar.equalsIgnoreCase(M.getNombre())) {//equalsIgnoreCase:independiente de qeu el usuario escriva en minusculas o mayusculas pueda buscar el libro
                             mascota=M;
                             System.out.println(mascota);
-
+                            break;
                         } else {
                             System.out.println("--El mascota no se encontro o no esta bien escrito \n--Por favor intentelo de nuevo");
                             break;
@@ -62,36 +62,65 @@ public class Main {
                     }
                     //SUB MENU
                     do{
-                        System.out.println("Ingrese una de las siguientes opciones: \n1.Cambiar edad \n2.Cmbiar peso \n3.Cambiar salud \n4.Salir: ");
+                        System.out.println("Ingrese una de las siguientes opciones: \n1.Cambiar edad \n2.Cambiar peso \n3.Cambiar salud \n4.Salir: ");
                         op2= teclado.nextInt();
 
                         switch (op2){
                             case 1://edad
-                                System.out.println("Edad nueva:");
-                                int modificarEdad= teclado.nextInt();
-                                mascota.cumplirAnos(modificarEdad);
+                                System.out.println("Digite '1' si desea agregarle o '2' para quitarle edad:");
+                                while(true){
+                                    int modificarEdad= teclado.nextInt();
+                                    if(modificarEdad==1){
+                                        System.out.println("Cuanto quiere sumarle: ");
+                                        int sumarEdad= teclado.nextInt();
+                                        mascota.sumarAnos(sumarEdad);
+                                        break;
+                                    }else  if (modificarEdad==2) {
+                                        System.out.println("Cuanto quiere quitarle: ");
+                                        int restarEdad= teclado.nextInt();
+                                        mascota.quitarAnos(restarEdad);
+                                        break;
+                                    } else{
+                                        System.out.println("Digite una opcion correcta");
+                                    }
+                                }
+                                System.out.println("--Su mascota: ");
+                                System.out.println(mascota);
                                 break;
                             case 2://peso
                                 System.out.println("Quiere que la mascota 1.engorde o 2.adelgaze:");
                                 int modificarPeso= teclado.nextInt();
                                 switch (modificarPeso){
                                     case 1://engordar
-                                        System.out.println("Ingrese cuanto quiere que engorde");
+                                        System.out.println("Ingrese cuanto quiere que engorde: ");
                                         double modificarEngordar= teclado.nextDouble();
                                         mascota.engordar(modificarEngordar);
                                         break;
                                     case 2:
-                                        System.out.println("Ingrese cuanto quiere que adelgaze");
+                                        System.out.println("Ingrese cuanto quiere que adelgaze: ");
                                         double modificarAdelgazar= teclado.nextDouble();
                                         mascota.adelgazar(modificarAdelgazar);
                                         break;
                                 }
                                 System.out.println("--Su mascota: ");
+                                System.out.println(mascota);
                                 break;
                             case 3://saludable
-                                System.out.println("Estado nuevo:");
-                                boolean modificarEstado= teclado.nextBoolean();
+                                System.out.println("Escriba 'true' para recuperar salud o 'false' para enfermar: ");
+                                while(true){
+                                    String modificarEstado= teclado.next();
+                                    if(modificarEstado.equalsIgnoreCase("true")){
+                                        mascota.recuperarSalud();
+                                        break;
+                                    }else  if (modificarEstado.equalsIgnoreCase("false")) {
+                                        mascota.enfermar();
+                                        break;
+                                    } else{
+                                        System.out.println("Digite una opcion correcta");
+                                    }
+                                }
                                 System.out.println("--Su mascota: ");
+                                System.out.println(mascota);
                                 break;
                             case 4:
                                 System.out.println("Saliendo...");
@@ -102,7 +131,6 @@ public class Main {
                         }
                     }while (op2!=4);
                     //FIN SEGUNDO MENU
-
                 case 4://salir
                     System.out.println("Saliendo...");
                     System.out.println("Que tenga buen día ʕ•́ᴥ•̀ʔっ ...");

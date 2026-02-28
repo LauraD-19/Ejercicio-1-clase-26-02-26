@@ -67,8 +67,13 @@ public class Mascota {
                 '}';
     }
 
-    public int cumplirAnos(int modificarEdad){
+    public int sumarAnos(int modificarEdad){
         this.edad+=modificarEdad;
+        return edad;
+    }
+
+    public int quitarAnos(int modificarEdad){
+        this.edad-=modificarEdad;
         return edad;
     }
 
@@ -83,10 +88,12 @@ public class Mascota {
     }
 
     public boolean enfermar(){
+        this.saludable=false;
         return saludable;
     }
 
     public boolean recuperarSalud(){
+        this.saludable=true;
         return saludable;
     }
 
