@@ -62,7 +62,7 @@ public class Main {
                     }
                     //SUB MENU
                     do{
-                        System.out.println("Ingrese una de las siguientes opciones: \n1.Cambiar edad \n2.Cambiar peso \n3.Cambiar salud \n4.Salir: ");
+                        System.out.println("Ingrese una de las siguientes opciones: \n1.Cambiar edad \n2.Cambiar peso \n3.Cambiar salud \n4.Salir ");
                         op2= teclado.nextInt();
 
                         switch (op2){
@@ -88,7 +88,7 @@ public class Main {
                                 System.out.println(mascota);
                                 break;
                             case 2://peso
-                                System.out.println("Quiere que la mascota 1.engorde o 2.adelgaze:");
+                                System.out.println("Digite '1' si quiere que engorde o '2' para adelgazar:");
                                 int modificarPeso= teclado.nextInt();
                                 switch (modificarPeso){
                                     case 1://engordar
@@ -124,12 +124,13 @@ public class Main {
                                 break;
                             case 4:
                                 System.out.println("Saliendo...");
-                                System.out.println("Que tenga buen día ʕ•́ᴥ•̀ʔっ ...");
+                                System.out.println("Regresando al menú principal ʕ•́ᴥ•̀ʔっ ...\n");
                                 break;
                             default:
                                 System.out.println("Ingrese una opcion correcta (ㆆ_ㆆ)");
                         }
                     }while (op2!=4);
+                    break;
                     //FIN SEGUNDO MENU
                 case 4://salir
                     System.out.println("Saliendo...");
