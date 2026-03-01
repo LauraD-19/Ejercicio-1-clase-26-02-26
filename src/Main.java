@@ -27,27 +27,29 @@ public class Main {
                     nombreM = teclado.next();
                     System.out.println("Especie: ");
                     especie = teclado.next();
-                    System.out.println("Edad: ");
+                    System.out.println("Edad (en meses): ");
                     edad = teclado.nextInt();
-                    System.out.println("Peso: ");
+                    System.out.println("Peso (en kg): ");
                     peso = teclado.nextDouble();
                     System.out.println("Estado de salud, 'true' para bueno y 'false' para malo: ");
                     saludable = teclado.nextBoolean();
 
                     Mascota mascota1=new Mascota(nombreM, especie, edad, peso, saludable);
                     MascotaList.add(mascota1);
-                    System.out.println("--Su mascota fue creada");
+                    System.out.println("--ʕ•ᴥ•ʔ Su mascota fue creada ʕ•ᴥ•ʔ");
                 case 2://lista
-                    System.out.println("Lista de mascotas: \n");
+                    System.out.println("Lista de mascotas \n(˚▽˚)☞\n");
                     for (Mascota M : MascotaList) {
                         System.out.println(M.mostrarFicha());
                     }
+                    System.out.println("\n☜(˚▽˚)\n");
                     break;
                 case 3://Buscar
                     System.out.println("Nombre de la mascota deseas buscar?:");
                     String buscar = teclado.next();
                     if (MascotaList.isEmpty()){
-                        System.out.println("--La lista no tiene objetos");
+                        System.out.println("--No tienes mascotas registradas");
+                        break;
                     }
                     Mascota mascota=null;
                     for (Mascota M : MascotaList) {
@@ -84,7 +86,7 @@ public class Main {
                                         System.out.println("Digite una opcion correcta");
                                     }
                                 }
-                                System.out.println("--Su mascota: ");
+                                System.out.println("--Su mascota ☺: ");
                                 System.out.println(mascota);
                                 break;
                             case 2://peso
@@ -102,7 +104,7 @@ public class Main {
                                         mascota.adelgazar(modificarAdelgazar);
                                         break;
                                 }
-                                System.out.println("--Su mascota: ");
+                                System.out.println("--Su mascota ☺: ");
                                 System.out.println(mascota);
                                 break;
                             case 3://saludable
@@ -119,7 +121,7 @@ public class Main {
                                         System.out.println("Digite una opcion correcta");
                                     }
                                 }
-                                System.out.println("--Su mascota: ");
+                                System.out.println("--Su mascota ☺: ");
                                 System.out.println(mascota);
                                 break;
                             case 4:
